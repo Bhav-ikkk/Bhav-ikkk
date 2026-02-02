@@ -1,5 +1,9 @@
 ## Hi there 👋
 
+<div align="center">
+  <img src="dist/github-shooter.gif" alt="GitHub Space Shooter">
+</div>
+
 <!--
 **Bhav-ikkk/Bhav-ikkk** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
