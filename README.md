@@ -1,7 +1,7 @@
 ## Hi there 👋
 
 <div align="center">
-  <img src="dist/github-shooter.gif" alt="GitHub Space Shooter">
+  <img src="dist/shooter.gif" alt="GitHub Space Shooter">
 </div>
 
 <!--
