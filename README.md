@@ -10,11 +10,34 @@
 
 <br>
 
-<!-- Space Shooter Game - Interactive Commits Heatmap -->
+<!-- 🎮 PLAYABLE GAME - Click to Play! -->
 <div align="center">
-  <h2>🎮 Shoot My Commits! 🚀</h2>
-  <p><i>My GitHub contributions turned into a space shooter game!</i></p>
-  <img src="dist/shooter.gif" alt="GitHub Space Shooter" width="800">
+  
+  ## 🎮 Play My GitHub Contribution Shooter! 🚀
+  
+  <a href="https://bhav-ikkk.github.io/Bhav-ikkk/">
+    <img src="https://img.shields.io/badge/🕹️_PLAY_NOW-Contribution_Shooter-6AD3F7?style=for-the-badge&labelColor=0d1117" alt="Play Game" />
+  </a>
+  
+  <br><br>
+  
+  <a href="https://bhav-ikkk.github.io/Bhav-ikkk/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Bhav-ikkk/Bhav-ikkk/raw/main/assets/game-preview.svg" />
+      <img src="https://github.com/Bhav-ikkk/Bhav-ikkk/raw/main/assets/game-preview.svg" alt="GitHub Contribution Shooter Game" width="700" style="border-radius: 12px; box-shadow: 0 0 30px rgba(106, 211, 247, 0.3);" />
+    </picture>
+  </a>
+  
+  <br>
+  
+  <table>
+    <tr>
+      <td align="center"><b>🎯 Shoot Blocks</b><br><sub>Each block = my commits</sub></td>
+      <td align="center"><b>💪 More Commits = Stronger</b><br><sub>5 commits need 5 hits!</sub></td>
+      <td align="center"><b>⌨️ Controls</b><br><sub>← → to move, SPACE to shoot</sub></td>
+    </tr>
+  </table>
+  
 </div>
 
 <br>
