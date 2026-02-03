@@ -5,6 +5,9 @@ on:
     # Run daily at midnight (00:00 UTC)
     - cron: '0 0 * * *'
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -17,6 +20,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       
+      - name: Create dist directory
+        run: mkdir -p dist
+      
       - name: Generate Space Shooter GIF
         uses: czl9707/gh-space-shooter@main
         with:
@@ -26,5 +32,5 @@ jobs:
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Update GitHub Space Shooter GIF"
+          commit_message: "🎮 Update GitHub Space Shooter GIF"
           file_pattern: 'dist/shooter.gif'
