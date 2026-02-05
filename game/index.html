@@ -71,11 +71,7 @@
             }
             
             .controls-hint {
-                font-size: 9px;
-                gap: 8px;
-                flex-wrap: wrap;
-                justify-content: center;
-                padding: 0 8px;
+                display: none; /* Hide controls hint on mobile to prevent blocking */
             }
         }
         
@@ -265,6 +261,7 @@
             color: #484f58;
             display: flex;
             gap: 16px;
+            pointer-events: none; /* Don't block clicks on mobile */
         }
 
         .key-hint {
