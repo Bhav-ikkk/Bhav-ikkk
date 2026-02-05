@@ -24,6 +24,12 @@ An arcade game built with my GitHub contributions. Blocks represent commits — 
 <br>
 
 <div align="center">
+  <img src="./assets/game-preview.svg" alt="Commit Destroyer Game Preview" width="600" />
+</div>
+
+<br>
+
+<div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Bhav-ikkk/Bhav-ikkk/output/github-snake-dark.svg" />
     <img alt="contribution-animation" src="https://raw.githubusercontent.com/Bhav-ikkk/Bhav-ikkk/output/github-snake.svg" />
