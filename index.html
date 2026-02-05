@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Commit Destroyer | Bhavik Joshi</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
     <style>
@@ -22,12 +22,76 @@
 
         .game-container {
             position: relative;
+            max-width: 900px;
+            width: 100%;
+            padding: 0 16px;
         }
 
         #gameCanvas {
             border-radius: 12px;
             background: #0d1117;
             border: 1px solid #21262d;
+            display: block;
+            max-width: 100%;
+            height: auto;
+            touch-action: none; /* Prevent default touch behaviors */
+        }
+
+        /* Mobile responsive styles */
+        @media (max-width: 768px) {
+            .game-container {
+                padding: 0 8px;
+            }
+            
+            #gameCanvas {
+                border-radius: 8px;
+            }
+            
+            .overlay-title {
+                font-size: 28px;
+            }
+            
+            .overlay-subtitle {
+                font-size: 14px;
+            }
+            
+            .menu-btn {
+                font-size: 14px;
+                padding: 12px 32px;
+            }
+            
+            .upgrade-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 300px;
+            }
+            
+            .stats-display {
+                gap: 16px;
+                flex-wrap: wrap;
+            }
+            
+            .controls-hint {
+                display: none; /* Hide controls hint on mobile as touch controls are used instead */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .overlay-title {
+                font-size: 24px;
+            }
+            
+            .menu-btn {
+                font-size: 13px;
+                padding: 10px 24px;
+            }
+            
+            .upgrade-grid {
+                gap: 8px;
+            }
+            
+            .stat-box-value {
+                font-size: 22px;
+            }
         }
 
         /* Overlay screens */
@@ -197,6 +261,7 @@
             color: #484f58;
             display: flex;
             gap: 16px;
+            pointer-events: none; /* Don't block clicks on mobile */
         }
 
         .key-hint {
@@ -1178,6 +1243,37 @@
 
     canvas.addEventListener('mouseup', () => game.shooting = false);
     canvas.addEventListener('mouseleave', () => game.shooting = false);
+
+    // Touch event listeners for mobile support
+    canvas.addEventListener('touchstart', e => {
+        e.preventDefault();
+        initAudio();
+        const rect = canvas.getBoundingClientRect();
+        const touch = e.touches[0];
+        game.mouseX = (touch.clientX - rect.left) * (W / rect.width);
+        if (game.state === 'playing') game.shooting = true;
+    }, { passive: false });
+
+    canvas.addEventListener('touchmove', e => {
+        e.preventDefault();
+        if (e.touches.length > 0) {
+            const rect = canvas.getBoundingClientRect();
+            const touch = e.touches[0];
+            game.mouseX = (touch.clientX - rect.left) * (W / rect.width);
+        }
+    }, { passive: false });
+
+    canvas.addEventListener('touchend', e => {
+        e.preventDefault();
+        if (e.touches.length === 0) {
+            game.shooting = false;
+        }
+    }, { passive: false });
+
+    canvas.addEventListener('touchcancel', e => {
+        e.preventDefault();
+        game.shooting = false;
+    }, { passive: false });
 
     document.addEventListener('keydown', e => {
         if (e.code === 'Space' && game.state === 'playing') {
