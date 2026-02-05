@@ -1252,19 +1252,28 @@
         const touch = e.touches[0];
         game.mouseX = (touch.clientX - rect.left) * (W / rect.width);
         if (game.state === 'playing') game.shooting = true;
-    });
+    }, { passive: false });
 
     canvas.addEventListener('touchmove', e => {
         e.preventDefault();
-        const rect = canvas.getBoundingClientRect();
-        const touch = e.touches[0];
-        game.mouseX = (touch.clientX - rect.left) * (W / rect.width);
-    });
+        if (e.touches.length > 0) {
+            const rect = canvas.getBoundingClientRect();
+            const touch = e.touches[0];
+            game.mouseX = (touch.clientX - rect.left) * (W / rect.width);
+        }
+    }, { passive: false });
 
     canvas.addEventListener('touchend', e => {
         e.preventDefault();
+        if (e.touches.length === 0) {
+            game.shooting = false;
+        }
+    }, { passive: false });
+
+    canvas.addEventListener('touchcancel', e => {
+        e.preventDefault();
         game.shooting = false;
-    });
+    }, { passive: false });
 
     document.addEventListener('keydown', e => {
         if (e.code === 'Space' && game.state === 'playing') {
